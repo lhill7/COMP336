@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?xml-stylesheet type="text/xsl" href="file:///C:/Users/Lyness/Documents/Markup%20Languages/RecipeForm.xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>Recipe Form </title>
+	</head>
+	<body>
+		<h1>Welcome To The RecipeXML Form!</h1>
+		<noscript>Sorry, your browser does not support JavaScript!</noscript>
+		<form method="get" action="recipegen.asp">
+			Author: <input type="text" name="author" maxlength="30"/>
+			<br/>
+			<br/>
+			Name of Recipe: <input type="text" name="title" maxlength="40"/>
+			<br/>
+			<br/>
+			Recipe Description: <input type="text" name="description"/>
+			<br/>
+			<br/>
+			Course: <br/>
+			<input type="radio" name="course" value="appetizer"/> Appertizer<br/>
+			<input type="radio" name="course" value="entree"/> Entree <br/>
+			<input type="radio" name="course" value="dessert"/> Dessert <br/>
+			<br/>
+			<br/>
+			Type <br/>
+			<input type="radio" name="type" value="sweet"/> Sweet<br/>
+			<input type="radio" name="type" value="spicy"/> Spicy<br/>
+			<input type="radio" name="type" value="bland"/> Bland<br/>
+			<input type="radio" name="type" value="sour"/> Sour<br/>
+			<input type="radio" name="type" value="rich"/> Rich<br/>
+			<br/>
+			<br/>
+			Preperation Time (Minutes)<br/>
+			<input type="text" name="Prep_Time" value=""/>
+			<br/>
+			<br/>
+			Source (Optional Link) <br/>
+			<input type="text" name="Source" value="http://"/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<input type="submit" value="Submit"/>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,54 @@
+<!--
+RecipeXML Revamped
+-->
+<?xml-stylesheet type="text/xsl" href="RecipeBook.xsl"?>
+<!-- === Hyperlinks for URL references === -->
+<!ELEMENT hyperlink (#PCDATA)>
+<!ATTLIST hyperlink
+	url CDATA #REQUIRED
+>
+<!-- === Information about a recipe === -->
+<!ELEMENT author (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT course (#PCDATA)>
+<!ELEMENT type (sweet, spicy, bland, sour, rich)>
+<!ELEMENT sweet (#PCDATA)>
+<!ELEMENT spicy (#PCDATA)>
+<!ELEMENT bland (#PCDATA)>
+<!ELEMENT sour (#PCDATA)>
+<!ELEMENT rich (#PCDATA)>
+<!ELEMENT preptime (#PCDATA)>
+<!ELEMENT source (#PCDATA | hyperlink)*>
+<!-- === Lists of ingredients === 
+The substitution and non substitution elements describe ingredients that can be used in lieu of the ingredients originally listed 	and ones that can't, or rather shouldn't, be used.  
+-->
+<!ELEMENT ingredients (substiution, non_substituion, quantity, unit)>
+<!ELEMENT fooditem (#PCDATA)>
+<!ELEMENT substitution (#PCDATA)>
+<!ELEMENT non_substitution (PCDATA)>
+<!ELEMENT quantity (#PCDATA)>
+<!ELEMENT unit (#PCDATA)>
+<!ELEMENT budget (#PCDATA)>
+<!-- Might add an attribute value to more specifically define unit measurements later -->
+
+
+<!-- === Elements of preparation ===
+The equipment tag refers to the types of pots, pans, utensils, etc. that the person will need to cook. The step tag is pretty self explanatory. 
+ -->
+<!ELEMENT equipment (#PCDATA | hyperlink)*>
+<!ELEMENT step (#PCDATA | equipment | hyperlink)*>
+
+<!-- === The main elements of a recipe === -->
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT recipeinfo (author | description | course | type | preptime | source | serving)*>
+<!ELEMENT ingredientlist (ingredient)*>
+<!ELEMENT preparation (#PCDATA | equipment | step | hyperlink)*>
+<!ELEMENT notes (#PCDATA | hyperlink)*>
+
+<!-- === And finally, the recipe itself === -->
+<!ELEMENT recipe (title, recipeinfo?, ingredientlist, preparation, serving?, notes?)>
+
+<!-- === A section provides logical divisions of a cookbook === -->
+<!ELEMENT section (title, recipe+)>
+<!-- === A cookbook consists of one or more recipes or sections === -->
+<!ELEMENT cookbook (title, (section | recipe)+)>
